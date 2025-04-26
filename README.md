@@ -1,4 +1,3 @@
-# Personal_loan_form_automation
 # Automated Personal Loan Document Processing
 
 This project automates the processing of personal loan application documents using OCR (Optical Character Recognition) and Streamlit.
