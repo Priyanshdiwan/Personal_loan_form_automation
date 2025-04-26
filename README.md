@@ -8,9 +8,11 @@ This project automates the processing of personal loan application documents usi
 
 2.  **OCR Processing:**
     * The application uses the `easyocr` library to extract text and bounding box coordinates from the uploaded image.
-    * The code checks if the image is an RBL form.
-        * If it is an RBL form, specific data fields are extracted.
-        * If it is not an RBL form, all text in the image is extracted.
+    * The code identifies all the bounding boxes in the form image.
+        * Marks important fields such as Name, Application Date, etc., as Regions of Interest and saves the bounding box coordinates.
+        * It extracts the corresponding field value and maps it to the fields, i.e., extracts the name written in the form and associates the value with the name field.
+
+    [Image of OCR Processing Steps](https://i.ibb.co/TMgZGS0J/Screenshot-from-2025-04-24-17-55-52.png)
 
 3.  **Data Display and Editing:**
     * The extracted data is displayed in a Pandas DataFrame within the Streamlit application.
@@ -25,7 +27,7 @@ This project automates the processing of personal loan application documents usi
 ### Prerequisites
 
 * **Python:** Ensure you have Python 3.9 or later installed.
-* **Virtual Environment (Recommended):** It's highly recommended to use a virtual environment to manage dependencies.  If you don't have `virtualenv` installed, you can install it:
+* **Virtual Environment (Recommended):** It's highly recommended to use a virtual environment to manage dependencies. If you don't have `virtualenv` installed, you can install it:
 
     ```bash
     pip install virtualenv
@@ -96,93 +98,4 @@ This project automates the processing of personal loan application documents usi
 
 5.  **Access the Application:**
 
-    * The application will open in your web browser.  If it doesn't open automatically, you should see the URL in your terminal (e.g., `http://localhost:8501`).  Open this URL in your browser.
-
-## How to Push Code to a Repository (e.g., GitHub)
-
-These instructions assume you want to use GitHub.  The general process is similar for other Git hosting services (e.g., GitLab, Bitbucket).
-
-1.  **Create a Repository on GitHub:**
-
-    * Go to <https://github.com/> and log in to your account.
-    * Click the "+" button in the top right corner and select "New repository."
-    * Give your repository a name (e.g., "personal-loan-ocr").
-    * You can add a description (optional).
-    * Choose whether you want the repository to be public or private.
-    * You can choose to add a README file, but it's not required at this stage.
-    * Click "Create repository."
-
-2.  **Initialize a Git Repository on Your Local Machine (If you haven't already):**
-
-    * Navigate to your project directory in your terminal:
-
-        ```bash
-        cd your_project_directory
-        ```
-
-    * Initialize a Git repository:
-
-        ```bash
-        git init
-        ```
-
-3.  **Add Your Files:**
-
-    * Add the files you want to commit to the repository:
-
-        ```bash
-        git add .  # Adds all files in the current directory
-        # Or, to add specific files:
-        # git add app.py requirements.txt ...
-        ```
-
-4.  **Commit Your Changes:**
-
-    * Commit the changes with a descriptive message:
-
-        ```bash
-        git commit -m "Initial commit of loan document processing application"
-        ```
-
-5.  **Link Your Local Repository to the Remote Repository:**
-
-    * On your GitHub repository page, you'll see instructions on how to connect your local repository to the remote one.  It will look something like this:
-
-        ```bash
-        git remote add origin [https://github.com/your_username/your_repository_name.git](https://github.com/your_username/your_repository_name.git)
-        ```
-
-        * Replace `your_username` and `your_repository_name` with your actual GitHub username and repository name.  You can copy this command directly from your GitHub repository page.
-
-6.  **Push Your Changes to GitHub:**
-
-    * Push your committed changes to the remote repository:
-
-        ```bash
-        git push -u origin master  # or main, depending on your branch name
-        ```
-        * The `-u` flag sets the upstream branch, so you only need to use `git push` in the future.
-        * If you created the repository after 2020, your default branch might be called `main` instead of `master`.  Check your GitHub repository page to see the correct branch name.
-
-7.  **Subsequent Changes:**
-
-    * After making further changes to your code:
-
-        ```bash
-        git add .
-        git commit -m "Describe your changes here"
-        git push
-        ```
-
-##  File Structure
-
-Here's the expected file structure:
-
-your_project_directory/app.py          # Streamlit application coderequirements.txt  # List of Python dependenciesProcfile        # Heroku Procfile (for Heroku deployment)setup.sh        #Heroku setupyour_image.jpg    # Example image file (optional)data.csv        # Example data file (optional)...
-##  Important Notes
-
-* **Virtual Environment:** Always work within a virtual environment to avoid conflicts between project dependencies.
-* **requirements.txt:** Keep your `requirements.txt` file up-to-date.  Whenever you install a new package with `pip`, update this file:  `pip freeze > requirements.txt`
-* **Git:** Use Git to version control your code and back it up to a remote repository like GitHub.  Commit your changes frequently with descriptive messages.
-* **File Paths:** Use relative file paths in your code (e.g., `"data.csv"` instead of `"/Users/yourname/data.csv"`) so that your application works correctly in different environments.
-* **Secrets:** Do not store API keys, passwords, or other sensitive information directly in your code.  Use environment variables or a secrets management solution.
+    * The application will open in your web browser. If it doesn't open automatically, you should see the URL in your terminal (e.g., `http://localhost:8501`). Open this URL in your browser.
