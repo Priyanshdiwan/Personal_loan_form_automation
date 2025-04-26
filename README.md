@@ -12,7 +12,7 @@ This project automates the processing of personal loan application documents usi
         * Marks important fields such as Name, Application Date, etc., as Regions of Interest and saves the bounding box coordinates.
         * It extracts the corresponding field value and maps it to the fields, i.e., extracts the name written in the form and associates the value with the name field.
 
-    [Image of OCR Processing Steps](https://i.ibb.co/TMgZGS0J/Screenshot-from-2025-04-24-17-55-52.png)
+    ![OCR Processing Steps](https://i.ibb.co/TMgZGS0J/Screenshot-from-2025-04-24-17-55-52.png)
 
 3.  **Data Display and Editing:**
     * The extracted data is displayed in a Pandas DataFrame within the Streamlit application.
