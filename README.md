@@ -14,7 +14,7 @@ This project automates the processing of personal loan application documents usi
 
     Here's an illustration of the OCR processing steps:
 
-    ![OCR Processing Steps](images/image_45422b.png)
+    ![OCR Processing Steps](https://i.ibb.co/TMgZGS0J/Screenshot-from-2025-04-24-17-55-52.png)
 
 3.  **Data Display and Editing:**
     * The extracted data is displayed in a Pandas DataFrame within the Streamlit application.
